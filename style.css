@@ -5,6 +5,9 @@
     --l100: #D6D6D6;
     --d100: #1A1A1A;
     --accent: #16A085;
+
+    --prayer-padding-x: var(--radius);
+    --prayer-padding-y: var(--radius);
 }
 
 *{
@@ -24,4 +27,11 @@ a{
 }
 li{
     list-style: none;
+}
+
+@media screen and (max-width: 400px) {
+    :root{
+        --prayer-padding-x: calc(var(--radius) / 2);
+        --prayer-padding-y: calc(var(--radius) / 2);
+    }
 }
