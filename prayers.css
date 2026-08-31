@@ -94,14 +94,17 @@
 
 /* grid input */
 #prayers:has(input.grid:checked) main{
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
 }
 #prayers:has(input.grid:checked) main>div{
+    flex: 1;
+    min-width: min(300px, 100%);
+    padding: var(--padding);
+    border-radius: var(--radius);
+
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    border-radius: var(--radius);
-    padding: var(--padding);
 }
 #prayers:has(input.grid:checked) main>div.shuruq .time{
     grid-column: 1 / 3;
