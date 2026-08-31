@@ -78,7 +78,6 @@ function displayPrayers(data) {
         prayersToDisplay = getDatePrayers(tomorrow);
     }
 
-    const prayersContainer = document.querySelector("#prayers");
     const prayersEl = document.querySelectorAll("#prayers div");
     const nextPrayer = getNextPrayer(data)
 
@@ -93,12 +92,6 @@ function displayPrayers(data) {
 
         if (name === nextPrayer.name) {
             element.classList.add("active");
-
-            const columns = Array(prayersEl.length).fill("auto");
-            columns[index] = "1fr";
-
-            prayersContainer.style.gridTemplateColumns =
-                columns.join(" ");
         }
 
         element.querySelector("p:nth-of-type(1)").textContent =
