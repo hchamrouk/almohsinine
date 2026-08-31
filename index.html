@@ -6,6 +6,7 @@
     <title>Al Mohsinine (Beaucaire)</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prayers.css">
 </head>
 <body>
 
@@ -13,35 +14,80 @@
 
     -->
 
+    <nav>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#prayers"></a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#about"></a>
+            </li>
+        </ul>
+    </nav>
+
     <div id="landing">
         
     </div>
 
     <div id="prayers">
-        <div class="fajr">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="shuruq">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="dhuhr">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="asr">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="maghrib">
-            <p></p>
-            <p></p>
-        </div>
-        <div class="isha">
-            <p></p>
-            <p></p>
-        </div>
+        <header>
+            <h1>Horaires de prières</h1>
+            <span>
+                <span></span><span></span><span></span>
+                <input type="radio" name="prayersInput" class="list">
+            </span>
+            <span>
+                <span></span><span></span><span></span><span></span>
+                <input type="radio" name="prayersInput" class="grid">
+            </span>
+        </header>
+        <main>
+            <div class="fajr">
+                <h1>fajr</h1>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="shuruq">
+                <h1 class="name">shuruq</h1>
+                <p class="time"></p>
+                <p class="offset"></p>
+            </div>
+            <div class="dhuhr">
+                <h1 class="name">dhuhr</h1>
+                <p class="time"></p>
+                <p class="offset"></p>
+            </div>
+            <div class="asr">
+                <h1 class="name">asr</h1>
+                <p class="time"></p>
+                <p class="offset"></p>
+            </div>
+            <div class="maghrib">
+                <h1 class="name">maghrib</h1>
+                <p class="time"></p>
+                <p class="offset"></p>
+            </div>
+            <div class="isha">
+                <h1 class="name">isha</h1>
+                <p class="time"></p>
+                <p class="offset"></p>
+            </div>
+        </main>
+        <footer>
+            <p>Les horaires de prières sont synchronisés depuis Mawaqit.</p>
+            <p>En cas de problème ou de différence, vous pouvez consulter les horaires directement sur <a href="https://mawaqit.net/fr/al-mouhsinine-beaucaire" target="_blank">Mawaqit</a>.</p>
+        </footer>
+    </div>
+
+    <div id="about">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut reprehenderit expedita facere obcaecati. Quis quibusdam id alias accusamus fuga odio amet cumque repellat, vero sint aliquam autem possimus nobis et.</p>
     </div>
 
     <script type="module" src="script.js"></script>
