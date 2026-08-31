@@ -1,6 +1,10 @@
 :root{
     --padding: 10px;
     --radius: 50px;
+
+    --l100: #D6D6D6;
+    --d100: #1A1A1A;
+    --accent: #16A085;
 }
 
 *{
@@ -9,73 +13,15 @@
 }
 
 body{
-    background-color: black;
+    background-color: var(--d100);
+    color: var(--l100);
     font-family: monospace;
 }
 
 a{
-    color: black;
+    color: var(--l100);
     text-decoration: none;
 }
 li{
     list-style: none;
-}
-
-#landing{
-    /* height: 100vh; */
-}
-
-/*  */
-
-#prayers{
-    background-color: white;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    gap: var(--padding);
-    padding: var(--padding);
-
-    place-items: center;
-    
-    height: 100vh;
-    border-radius: var(--radius);
-    padding: var(--radius);
-
-}
-
-#prayers>div{
-    background-color: gray;
-    height: 150px;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    aspect-ratio: 1;
-    
-    border-radius: calc(var(--radius) * 2);
-    padding: var(--padding);
-}
-#prayers>div.active{
-    aspect-ratio: unset;
-    grid-template-columns: 1fr 200px;
-    grid-template-rows: 1fr;
-    place-items: center; 
-    gap: var(--padding);
-    background-color: black;
-    color: white;
-}
-#prayers>div.active p{
-    font-size: 5em;
-}
-
-#prayers>div>p{
-    width: 100%;
-    font-size: 2em;
-    
-    display: grid;
-    place-items: center;
-}
-#prayers>div>p:nth-of-type(1){
-    place-items: end center;
-}
-#prayers>div>p:nth-of-type(2){
-    place-items: start center;
 }
