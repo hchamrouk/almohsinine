@@ -7,7 +7,7 @@
     gap: var(--padding);
     
     height: 100vh;
-    padding: var(--radius);
+    padding: var(--prayer-padding-y) var(--prayer-padding-x);
     border-radius: var(--radius);
 }
 
@@ -22,6 +22,7 @@
     display: grid;
     place-items: center start;
     text-transform: uppercase;
+    font-size: clamp(1em, 2vw, 2em);
 }
 
 /* input */
@@ -68,9 +69,10 @@
 }
 #prayers main>div{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     border: 1px solid var(--d100);
     border-radius: calc(var(--radius) * 2);
+    padding-inline: var(--padding)
 }
 #prayers main>div.active{
     background-color: var(--d100);
@@ -79,7 +81,7 @@
 #prayers main>div>*{
     display: grid;
     place-items: center;
-    font-size: 4em;
+    font-size: clamp(1.5em, 2vw, 4em);
 }
 
 /* footer */
