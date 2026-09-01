@@ -1,0 +1,178 @@
+#prayers{
+    --section-nb: 3;
+    --prayers-padding: calc(2 * var(--padding));
+    --prayer-section-min-height: calc(
+        var(--vp-min-height) + 
+        ((var(--section-nb) - 1) * var(--prayers-padding)) +
+        (2 * var(--prayers-padding))
+    );
+
+    --header-footer-min-height: 100px;
+    --header-input-height: 75px;
+    --main-min-height: calc(
+        var(--vp-min-height) - 
+        (2 * var(--header-footer-min-height))
+    );
+
+    background-color: var(--l100);
+    color: var(--d100);
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    
+    height: 100vh;
+    min-height: var(--prayer-section-min-height);
+    padding: var(--prayers-padding);
+    gap: var(--prayers-padding);
+}
+
+#prayers header,
+#prayers footer{
+    height: var(--header-footer-min-height);
+    /* background-color: red; */
+}
+
+/* header */
+#prayers header{
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    place-items: center;
+    gap: var(--padding);
+}
+#prayers header h1{
+    display: grid;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+/* input */
+#prayers header>span{
+    position: relative;
+    display: grid;
+    gap: calc(var(--padding) / 2);
+
+    height: var(--header-input-height);
+    aspect-ratio: 1;
+    padding: calc(var(--padding) / 2);
+    border: 1px solid var(--d100);
+
+    background-color: var(--l100);
+}
+#prayers header>span span{
+    background-color: var(--d100);
+}
+#prayers header>span:has(input.list){
+    grid-template-rows: repeat(3, 1fr); 
+}
+#prayers header>span:has(input.grid){
+    grid-template-rows: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr); 
+}
+#prayers header>span input{
+    all: unset;
+    position: absolute;
+    width: 100%; height: 100%;
+    cursor: pointer;
+}
+#prayers header>span:has(input:checked){
+    background-color: var(--d100);
+}
+#prayers header>span:has(input:checked) span{
+    background-color: var(--l100);
+}
+
+/* main */
+#prayers main{
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: var(--padding);
+    min-height: var(--main-min-height);
+}
+#prayers main>div{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    border: 1px solid var(--d100);
+    padding: var(--padding);
+}
+#prayers main>div.active{
+    background-color: var(--d100);
+    color: var(--l100);
+}
+#prayers main>div>h1,
+#prayers main>div>p{
+    display: grid;
+    place-items: center;
+    font-size: clamp(1.5em, 2vw, 4em);
+}
+
+/* footer */
+#prayers footer{
+    display: grid;
+    max-height: max-content;
+}
+#prayers footer p:nth-of-type(1){
+    display: grid;
+    place-items: end start;
+}
+#prayers footer a{
+    color: var(--accent);
+}
+
+/* grid input */
+#prayers:has(input.grid:checked) main{
+    --prayers-cells-width: 500px;
+    --case1-top-row-cells-nb: 4;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--prayers-cells-width), 100%), 1fr));
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+}
+#prayers:has(input.grid:checked) main>div{
+    flex: 1;
+    padding: var(--padding);
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* 
+cas 1 :
+1 2 3 4
+5 6 6 6
+(500px * 4) + (10px * 3) + (20px * 2) = 2070px
+
+cas 2 :
+1 2 3 4 5
+6 6 6 6 6
+(500px * 5) + (10px * 4) + (20px * 2) = 2580px
+
+cas 3 :
+1 2 3 4 5 6
+(500px * 6) + (10px * 5) + (20px * 2) = 3090px
+ */
+@media screen and (min-width: 2070px) {
+    #prayers:has(input.grid:checked) main>div:nth-of-type(6){
+        grid-column: 2 / -1;
+    }
+}
+@media screen and (min-width: 2580px) {
+    #prayers:has(input.grid:checked) main>div:nth-of-type(6){
+        grid-column: 1 / -1;
+    }
+}
+@media screen and (min-width: 3090px) {
+    #prayers:has(input.grid:checked) main>div:nth-of-type(6){
+        grid-column: auto;
+    }
+}
+
+#prayers:has(input.grid:checked) main>div.shuruq .time{
+    grid-column: 1 / 3;
+}
+#prayers:has(input.grid:checked) main>div h1{
+    grid-column: 1 / 3;
+}
+#prayers:has(input.grid:checked) main>div p{
+    grid-row: 2;
+}
