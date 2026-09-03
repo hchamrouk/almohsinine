@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Mohsinine (Beaucaire)</title>
+    <link rel="stylesheet" href="css/main.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/landing.css">
-    <link rel="stylesheet" href="css/prayers.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/nav.css">
+    <script type="importmap">
+    {
+        "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -19,16 +23,17 @@
 
     <nav>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-        <ul>
+            <li>
+                <a href="#landing"></a>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
             <li>
                 <a href="#prayers"></a>
             </li>
-        </ul>
-        <ul>
             <li>
                 <a href="#about"></a>
             </li>
@@ -36,20 +41,13 @@
     </nav>
 
     <div id="landing">
-        
+        <div id="canvas"></div>
+        <h1>مسجد المحسنين</h1>
     </div>
 
     <div id="prayers">
         <header>
             <h1>Horaires de prières</h1>
-            <span>
-                <span></span><span></span><span></span>
-                <input type="radio" name="prayersInput" class="list">
-            </span>
-            <span>
-                <span></span><span></span><span></span><span></span>
-                <input type="radio" name="prayersInput" class="grid">
-            </span>
         </header>
         <main>
             <div class="fajr">
@@ -94,6 +92,8 @@
     </div>
 
     <script type="module" src="script.js"></script>
+
+    <script type="module" src="./modules/main.js"></script>
     
 </body>
 </html>
